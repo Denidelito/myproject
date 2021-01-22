@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <section class="catalog">
+    <ul class="catalog__list">
+      <li class="catalog__item" v-for="(product, index) in products" :key="index">
+        <a class="catalog__pic" href="#">
+          <img :src="product.img" :alt="product.title">
+        </a>
+
+        <h3 class="catalog__title">
+          <a href="#">
+            {{product.title}}
+          </a>
+        </h3>
+
+        <span class="catalog__price">
+          {{product.price}}
+        </span>
+
+        <Color :colors="product.colors" :key="index"></Color>
+      </li>
+    </ul>
+  </section>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import products from './data/products';
+import Color from './components/product/Color.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    Color,
+  },
+  data() {
+    return {
+      products,
+    };
   },
 };
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
