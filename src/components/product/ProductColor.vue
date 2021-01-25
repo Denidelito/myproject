@@ -4,10 +4,10 @@
       <label class="colors__label">
         <input class="colors__radio sr-only"
                type="radio"
-               :name="'color-'+key"
+               :name="'color-'+keyColor"
                :value="color"
                :checked="index === 0">
-        <span class="colors__value" :style="'background-color:'+color+';'"></span>
+        <span class="colors__value" :style="'background-color:'+color+';'"/>
       </label>
     </li>
   </ul>
@@ -15,10 +15,7 @@
 
 <script>
 export default {
-  name: 'Color',
-  props: {
-    colors: Array,
-    key: String,
-  },
+  name: 'ProductColor',
+  props: ['colors', 'keyColor'],
 };
 </script>
