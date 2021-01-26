@@ -12,9 +12,9 @@
 
     <span class="catalog__price">
           {{product.price}}
-      </span>
+    </span>
 
-    <ProductColor :colors="product.colors" :key-color="productIndex"/>
+    <ProductColor :colors="product.colors"/>
   </li>
 </template>
 

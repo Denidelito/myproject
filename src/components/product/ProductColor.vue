@@ -4,9 +4,9 @@
       <label class="colors__label">
         <input class="colors__radio sr-only"
                type="radio"
-               :name="'color-'+keyColor"
                :value="color"
-               :checked="index === 0">
+               v-model="currentColor"
+        >
         <span class="colors__value" :style="'background-color:'+color+';'"/>
       </label>
     </li>
@@ -16,6 +16,11 @@
 <script>
 export default {
   name: 'ProductColor',
-  props: ['colors', 'keyColor'],
+  data() {
+    return {
+      currentColor: '#000000',
+    };
+  },
+  props: ['colors'],
 };
 </script>

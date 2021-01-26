@@ -2,7 +2,7 @@
   <ul class="catalog__list">
     <ProductItem :product="product"
                  :productIndex="index"
-                 v-for="(product, index) in products" :key="index"/>
+                 v-for="(product, index) in products" :key="product.id"/>
   </ul>
 </template>
 
