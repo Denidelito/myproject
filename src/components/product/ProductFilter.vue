@@ -30,9 +30,9 @@
       <fieldset class="form__block">
         <legend class="form__legend">Цвет</legend>
         <ul class="colors">
-          <ColorLIst :color="color"
-                     :current-color.sync="currentColor" v-for="color in colors"
-                     :key="color.id"/>
+          <ColorLIst class="colors"
+            :color-list="colors"
+            :current-color.sync="currentColor"/>
         </ul>
       </fieldset>
       <fieldset class="form__block">

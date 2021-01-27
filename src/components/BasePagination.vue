@@ -20,7 +20,7 @@
     </li >
     <li class="pagination__item">
       <a class="pagination__link pagination__link--arrow" href="#"
-         :class="{'pagination__link--disabled': page === perPage}"
+         :class="{'pagination__link--disabled': page === pages}"
          aria-label="Следующая страница"
          @click.prevent="paginate(page + 1)"
       >
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     paginate(page) {
-      if (page > 0 && page < this.perPage + 1) {
+      if (page > 0 && page <= this.pages) {
         this.$emit('paginate', page);
       }
     },

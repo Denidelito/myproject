@@ -14,11 +14,9 @@
           {{product.price}}
     </span>
 
-    <ul class="colors colors--black">
-      <ColorLIst :color="color"
-                 :current-color.sync="currentColor" v-for="color in product.colors"
-                 :key="color.id"/>
-    </ul>
+    <ColorLIst class="colors colors--black"
+               :color-list="product.colors"
+               :current-color.sync="currentColor"/>
   </li>
 </template>
 
