@@ -4,7 +4,7 @@
     <ProductFilter :price-from.sync="filterPriceFrom"
                    :price-to.sync="filterPriceTo"
                    :category-id.sync="filterCategoryId"
-                   :product-color.sync="filterColor"/>
+                   :product-color.sync="filterColorId"/>
 
     <section class="catalog">
       <ProductList :products="products"/>
@@ -33,7 +33,7 @@ export default {
       filterPriceFrom: 0,
       filterPriceTo: 0,
       filterCategoryId: 0,
-      filterColor: '',
+      filterColorId: 0,
       page: 1,
       productsPerPage: 3,
     };
@@ -44,7 +44,8 @@ export default {
       const Category = (product) => product.categoryId === this.filterCategoryId;
       const PriceFrom = (product) => product.price > this.filterPriceFrom;
       const PriceTo = (product) => product.price < this.filterPriceTo;
-      const Color = (product) => product.colors.indexOf(this.filterColor) !== -1;
+      const Color = (product) => product.colors.find((color) => color.id === this.filterColorId);
+
       if (this.filterPriceFrom > 0) {
         filterProducts = filterProducts.filter(PriceFrom);
       }
@@ -57,7 +58,7 @@ export default {
         filterProducts = filterProducts.filter(Category);
       }
 
-      if (this.filterColor) {
+      if (this.filterColorId) {
         filterProducts = filterProducts.filter(Color);
       }
       return filterProducts;

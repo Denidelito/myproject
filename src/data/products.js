@@ -6,9 +6,18 @@ export default [
     img: 'img/iphone3G.jpg',
     price: 3700,
     colors: [
-      '#000000',
-      '#f9f6ff',
-      '#ff683c',
+      {
+        id: 1,
+        title: '#000000',
+      },
+      {
+        id: 3,
+        title: '#ff683c',
+      },
+      {
+        id: 4,
+        title: '#ff0000',
+      },
     ],
   },
   {
@@ -18,8 +27,14 @@ export default [
     img: 'img/iphone4.jpg',
     price: 10000,
     colors: [
-      '#ff0000',
-      '#f9f6ff',
+      {
+        id: 2,
+        title: '#f9f6ff',
+      },
+      {
+        id: 3,
+        title: '#ff683c',
+      },
     ],
   },
   {
@@ -29,8 +44,10 @@ export default [
     img: 'img/iphone4s.jpg',
     price: 5700,
     colors: [
-      '#000000',
-      '#f9f6ff',
+      {
+        id: 2,
+        title: '#f9f6ff',
+      },
     ],
   },
   {
@@ -40,8 +57,22 @@ export default [
     img: 'img/iphone5.jpg',
     price: 12440,
     colors: [
-      '#000000',
-      '#f9f6ff',
+      {
+        id: 1,
+        title: '#000000',
+      },
+      {
+        id: 2,
+        title: '#f9f6ff',
+      },
+      {
+        id: 3,
+        title: '#ff683c',
+      },
+      {
+        id: 4,
+        title: '#ff0000',
+      },
     ],
   },
   {
@@ -51,8 +82,14 @@ export default [
     img: 'img/iphone5s.jpg',
     price: 15380,
     colors: [
-      '#000000',
-      '#f9f6ff',
+      {
+        id: 1,
+        title: '#000000',
+      },
+      {
+        id: 2,
+        title: '#f9f6ff',
+      },
     ],
   },
   {
@@ -62,8 +99,14 @@ export default [
     img: 'img/iphoneSE.jpg',
     price: 18990,
     colors: [
-      '#000000',
-      '#f9f6ff',
+      {
+        id: 3,
+        title: '#ff683c',
+      },
+      {
+        id: 4,
+        title: '#ff0000',
+      },
     ],
   },
   {
@@ -73,8 +116,22 @@ export default [
     img: 'img/iphone6.jpg',
     price: 36000,
     colors: [
-      '#000000',
-      '#f9f6ff',
+      {
+        id: 1,
+        title: '#000000',
+      },
+      {
+        id: 2,
+        title: '#f9f6ff',
+      },
+      {
+        id: 3,
+        title: '#ff683c',
+      },
+      {
+        id: 4,
+        title: '#ff0000',
+      },
     ],
   },
   {
@@ -84,8 +141,14 @@ export default [
     img: 'img/iphone6s.png',
     price: 43000,
     colors: [
-      '#000000',
-      '#f9f6ff',
+      {
+        id: 1,
+        title: '#000000',
+      },
+      {
+        id: 2,
+        title: '#f9f6ff',
+      },
     ],
   },
   {
@@ -95,8 +158,14 @@ export default [
     img: 'img/iphone7.jpg',
     price: 33690,
     colors: [
-      '#000000',
-      '#f9f6ff',
+      {
+        id: 3,
+        title: '#ff683c',
+      },
+      {
+        id: 4,
+        title: '#ff0000',
+      },
     ],
   },
 ];

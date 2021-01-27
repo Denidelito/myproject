@@ -14,17 +14,26 @@
           {{product.price}}
     </span>
 
-    <ProductColor :colors="product.colors"/>
+    <ul class="colors colors--black">
+      <ColorLIst :color="color"
+                 :current-color.sync="currentColor" v-for="color in product.colors"
+                 :key="color.id"/>
+    </ul>
   </li>
 </template>
 
 <script>
-import ProductColor from './ProductColor.vue';
+import ColorLIst from '../ColorLIst.vue';
 
 export default {
   name: 'ProductItem',
+  data() {
+    return {
+      currentColor: 0,
+    };
+  },
   components: {
-    ProductColor,
+    ColorLIst,
   },
   props: ['product', 'productIndex'],
 };
