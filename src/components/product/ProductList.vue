@@ -2,7 +2,8 @@
   <ul class="catalog__list">
     <ProductItem :product="product"
                  :productIndex="index"
-                 v-for="(product, index) in products" :key="product.id"/>
+                 v-for="(product, index) in products" :key="product.id"
+                 @gotoPage="(pageName, pageParams) => $emit('gotoPage', pageName, pageParams)"/>
   </ul>
 </template>
 
