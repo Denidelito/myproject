@@ -1,7 +1,6 @@
 <template>
   <li class="catalog__item" >
-    <a class="catalog__pic" href="#"
-       @click.prevent="$emit('gotoPage', 'product', {id: product.id})">
+    <a class="catalog__pic" href="#" @click.prevent="gotoPage()">
       <img :src="product.img" :alt="product.title">
     </a>
 
@@ -33,6 +32,11 @@ export default {
   },
   components: {
     ColorLIst,
+  },
+  methods: {
+    gotoPage() {
+      this.$emit('gotoPage', 'product', { id: this.product.id });
+    },
   },
   props: ['product', 'productIndex'],
 };

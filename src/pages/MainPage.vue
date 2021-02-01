@@ -18,7 +18,7 @@
 
       <section class="catalog">
         <ProductList :products="products"
-                     @gotoPage="(pageName, pageParams) => $emit('gotoPage', pageName, pageParams)"/>
+                     @gotoPage="(pageName, pageParam) => $emit('gotoPage', pageName, pageParam)"/>
 
         <BasePagination v-model="page" :page="page" :count="countProducts"
                         :per-page="productsPerPage"/>
