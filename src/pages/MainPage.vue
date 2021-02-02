@@ -14,12 +14,10 @@
       <ProductFilter :price-from.sync="filterPriceFrom"
                      :price-to.sync="filterPriceTo"
                      :category-id.sync="filterCategoryId"
-                     :product-color.sync="filterColorId"/>
-
+                     :product-color.sync="filterColorId"
+                     :pageParams="pageParams"/>
       <section class="catalog">
-        <ProductList :products="products"
-                     @gotoPage="(pageName, pageParam) => $emit('gotoPage', pageName, pageParam)"/>
-
+        <ProductList :products="products"/>
         <BasePagination v-model="page" :page="page" :count="countProducts"
                         :per-page="productsPerPage"/>
       </section>
@@ -31,6 +29,7 @@ import products from '@/data/products';
 import ProductList from '@/components/product/ProductList.vue';
 import BasePagination from '@/components/BasePagination.vue';
 import ProductFilter from '@/components/product/ProductFilter.vue';
+import gotoPage from '../helpers/gotoPage';
 
 export default {
   components: {
@@ -38,6 +37,9 @@ export default {
     BasePagination,
     ProductList,
   },
+  props: [
+    'pageParams',
+  ],
   data() {
     return {
       filterPriceFrom: 0,
@@ -80,6 +82,9 @@ export default {
     countProducts() {
       return this.filterProducts.length;
     },
+  },
+  methods: {
+    gotoPage,
   },
 };
 </script>

@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'ProductColor',
+  name: 'ColorList',
   props: ['colorList', 'currentColor'],
   computed: {
     computedColors: {

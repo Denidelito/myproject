@@ -113,7 +113,7 @@ import ColorLIst from '../ColorLIst.vue';
 
 export default {
   name: 'ProductFilter',
-  props: ['priceFrom', 'priceTo', 'categoryId', 'productColor'],
+  props: ['priceFrom', 'priceTo', 'categoryId', 'productColor', 'pageParams'],
   components: {
     ColorLIst,
   },
@@ -161,6 +161,11 @@ export default {
       this.$emit('update:categoryId', 0);
       this.$emit('update:productColor', 0);
     },
+  },
+  created() {
+    if (this.pageParams.categoryId) {
+      this.$emit('update:categoryId', this.pageParams.categoryId);
+    }
   },
 };
 </script>
