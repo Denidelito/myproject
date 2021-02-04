@@ -163,8 +163,8 @@ export default {
     },
   },
   created() {
-    if (this.pageParams.categoryId) {
-      this.$emit('update:categoryId', this.pageParams.categoryId);
+    if (this.$route.params.categoryId) {
+      this.$emit('update:categoryId', this.$route.params.categoryId);
     }
   },
 };
