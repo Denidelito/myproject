@@ -70,7 +70,7 @@
           {{product.title}}
         </h2>
         <div class="item__form">
-          <form class="form" action="#" method="POST">
+          <form class="form" action="#" method="POST" @submit.prevent="addToCart()">
             <b class="item__price">
               {{product.price | numberFormat}} ₽
             </b>
@@ -115,21 +115,24 @@
             </fieldset>
 
             <div class="item__row">
-              <div class="form__counter">
-                <button type="button" aria-label="Убрать один товар">
+              <!--<div class="form__counter">
+                <button type="button" aria-label="Убрать один товар"
+                        @click="decrement()">
                   <svg width="12" height="12" fill="currentColor">
                     <use xlink:href="#icon-minus"></use>
                   </svg>
                 </button>
 
-                <input type="text" value="1" name="count">
+                <input type="text" v-model.number="productAmount">
 
-                <button type="button" aria-label="Добавить один товар">
+                <button type="button" aria-label="Добавить один товар"
+                        @click="++productAmount">
                   <svg width="12" height="12" fill="currentColor">
                     <use xlink:href="#icon-plus"></use>
                   </svg>
                 </button>
-              </div>
+              </div>-->
+              <product-counter class="form__counter" :counter.sync="productAmount"/>
 
               <button class="button button--primery" type="submit">
                 В корзину
@@ -208,14 +211,21 @@
   </main>
 </template>
 <script>
-import products from '../data/products';
-import categories from '../data/category';
-import ColorList from '../components/ColorLIst.vue';
-import numberFormat from '../helpers/numberFormat';
+import products from '@/data/products';
+import categories from '@/data/category';
+import ColorList from '@/components/ColorLIst.vue';
+import numberFormat from '@/helpers/numberFormat';
+import ProductCounter from '@/components/product/ProductCounter.vue';
 
 export default {
   components: {
+    ProductCounter,
     ColorList,
+  },
+  data() {
+    return {
+      productAmount: 1,
+    };
   },
   filters: {
     numberFormat,
@@ -226,6 +236,22 @@ export default {
     },
     category() {
       return categories.find((category) => category.id === this.product.categoryId);
+    },
+  },
+  methods: {
+    decrement() {
+      if (this.productAmount !== 1) {
+        this.productAmount -= 1;
+      }
+    },
+    addToCart() {
+      this.$store.commit(
+        'addProductToCart',
+        {
+          productId: this.product.id,
+          amount: this.productAmount,
+        },
+      );
     },
   },
 };
