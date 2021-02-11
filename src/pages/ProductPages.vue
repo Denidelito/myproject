@@ -254,5 +254,12 @@ export default {
       );
     },
   },
+  watch: {
+    '$route.params.id': function () {
+      if (!this.product) {
+        this.$router.replace({ name: 'notFound' });
+      }
+    },
+  },
 };
 </script>

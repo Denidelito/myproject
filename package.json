@@ -38,7 +38,17 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-underscore-dangle": ["error", { "allow": ["_underlying_vm_", "_componentTag"] }],
+      "object-shorthand": ["error", "always"],
+      "no-return-assign": ["error", "except-parens"],
+      "no-restricted-properties": "off",
+      "import/prefer-default-export": "off",
+      "no-shadow": "off",
+      "no-unused-expressions": "off",
+      "no-param-reassign": ["error", { "props": false }],
+      "quotes": ["error", "single"]
+    }
   },
   "browserslist": [
     "> 1%",
